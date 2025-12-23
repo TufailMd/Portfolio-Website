@@ -1,57 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>404 | Lost Page</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  body {
-    background: #ffffff;
-    padding: 40px 10px;
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    color: #333;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <title>404 | Lost Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  h1 {
-    font-size: 5rem;
-    margin-bottom: 5px;
-    margin-top: 20px;
-    color: #2a2a2a;
-  }
+    <style>
+      /* ================= LIGHT THEME ================= */
+      :root {
+        --bg-main: #f2f2f2;
+        --card-bg: #c7cccd;
+        --accent: #129fb0;
+        --accent-hover: #9ea5f3;
+        --text-main: #2e2f2c;
+        --text-muted: #797e70;
+      }
 
-  p {
-    font-size: 1rem;
-    margin-bottom: 25px;
-    opacity: .7;
-  }
+      /* ================= DARK THEME ================= */
+      body.dark {
+        --bg-main: #2e2f2c;
+        --card-bg: #3a3b38;
+        --accent: #129fb0;
+        --accent-hover: #9ea5f3;
+        --text-main: #f2f2f2;
+        --text-muted: #c7cccd;
+      }
 
-  img {
-    width: 300px;
-    margin: 10px auto 20px;
-  }
+      body {
+        background: var(--bg-main);
+        padding: 40px 10px;
+        font-family: system-ui, sans-serif;
+        text-align: center;
+        color: var(--text-main);
+        transition: background 0.3s ease, color 0.3s ease;
+      }
 
-  .btn {
-    background: #1fa145;
-    color: #fff;
-    padding: 10px 25px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-  .btn:hover {
-    background: #148436;
-  }
-</style>
-</head>
-<body>
+      h1 {
+        font-size: 5rem;
+        margin: 20px 0 5px;
+      }
 
-  <img src="https://cdn-icons-png.flaticon.com/512/9111/9111165.png" alt="Lost Page">
-  <h1>404</h1>
-  <p>Looks like you're lost.<br> The page you are looking for is not available!</p>
-  <a href="index.html" class="btn">Go to Home</a>
+      p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+        color: var(--text-muted);
+      }
 
-</body>
+      img {
+        width: 280px;
+        margin: 10px auto 20px;
+        filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
+      }
+
+      .btn {
+        background: var(--accent);
+        color: #fff;
+        padding: 10px 25px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: 0.25s ease;
+        display: inline-block;
+      }
+
+      .btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/9111/9111165.png"
+      alt="Lost Page"
+    />
+    <h1>404</h1>
+    <p>
+      Looks like you're lost.<br />
+      The page you are looking for is not available!
+    </p>
+    <a href="index.html" class="btn">Go to Home</a>
+
+    <!-- ================= THEME SYNC SCRIPT ================= -->
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+      }
+    </script>
+  </body>
 </html>

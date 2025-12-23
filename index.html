@@ -5,6 +5,25 @@
     <title>Tufail | Full Stack Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Md Tufail - Full Stack Developer specializing in React, Node.js, and MongoDB. Building scalable web applications with modern technologies."
+    />
+    <meta
+      name="keywords"
+      content="Full Stack Developer, React Developer, Node.js, MongoDB, Web Development, JavaScript Developer"
+    />
+    <meta name="author" content="Md Tufail" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Tufail | Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Full Stack Developer passionate about building scalable web applications"
+    />
+    <meta property="og:type" content="website" />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
@@ -35,10 +54,13 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero fade-in">
       <div class="hero-left">
         <p class="tag">Hello, I am</p>
         <h1>Md Tufail</h1>
@@ -66,7 +88,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="section scroll-reveal">
       <h2 class="section-title">About Me</h2>
       <p class="section-subtitle">
         Building <span>scalable solutions</span> and
@@ -94,7 +116,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
+    <section id="skills" class="section scroll-reveal">
       <h2 class="section-title">Technical Skills</h2>
 
       <h3 class="skill-heading">Frontend Development</h3>
@@ -117,17 +139,12 @@
         </div>
         <div class="skill-card">
           <i class="devicon-github-original"></i>
-
           <p>GitHub</p>
         </div>
         <div class="skill-card">
           <i class="devicon-tailwindcss-plain colored"></i>
           <p>Tailwind CSS</p>
         </div>
-        <!-- <div class="skill-card">
-          <i class="devicon-bootstrap-plain colored"></i>
-          <p>Bootstrap 5</p>
-        </div> -->
       </div>
 
       <h3 class="skill-heading">Backend Development</h3>
@@ -182,7 +199,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section id="projects" class="section scroll-reveal">
       <h2 class="section-title">Featured Projects</h2>
       <p class="section-subtitle">
         Real-world applications showcasing my development skills
@@ -375,8 +392,34 @@
       </div>
     </section>
 
+    <!-- Resume Section -->
+    <section id="resume" class="section scroll-reveal">
+      <h2 class="section-title">Resume</h2>
+      <p class="section-subtitle">
+        Download my resume to learn more about my experience
+      </p>
+
+      <div class="resume-container">
+        <div class="resume-card">
+          <i class="fa-solid fa-file-pdf"></i>
+          <h3>My Resume</h3>
+          <p>
+            Full Stack Developer with expertise in React, Node.js, and MongoDB
+          </p>
+          <br />
+          <a
+            href="https://drive.google.com/file/d/1PjQabvkQ_ZxVOTPmHQ79QQ2V0rSV07vq/view?usp=drive_link"
+            download
+            class="btn primary"
+          >
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section scroll-reveal">
       <h2 class="section-title">Get In Touch</h2>
       <p class="section-subtitle">
         Open to internship opportunities and collaboration
@@ -421,5 +464,24 @@
     <footer class="footer">
       <p>© <span id="year"></span> Md Tufail. Built with passion and code.</p>
     </footer>
+    <script>
+      /* ================= SCROLL REVEAL ================= */
+      const revealElements = document.querySelectorAll(
+        ".scroll-reveal, .fade-in"
+      );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("reveal");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      revealElements.forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

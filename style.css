@@ -1,15 +1,47 @@
 /* ================= ROOT THEME ================= */
 :root {
-  --bg-main: #0b0d12;
-  --bg-card: rgba(255, 255, 255, 0.04);
-  --border-soft: rgba(255, 255, 255, 0.08);
+  /* Backgrounds */
+  --bg-main: #f2f2f2; /* App / Website Background */
+  --bg-card: #c7cccd; /* Cards / Sections */
+  --navbar-bg: #2e2f2c; /* Navbar / Footer */
 
-  --accent: #ff4b4b;
-  --accent-gradient: linear-gradient(135deg, #ff4b4b, #ff914d);
-  --accent-soft: rgba(255, 75, 75, 0.18);
+  /* Borders */
+  --border-soft: rgba(46, 47, 44, 0.18);
 
-  --text-main: #f5f7fa;
-  --text-muted: #b5b8c5;
+  /* Accent Colors */
+  --accent: #129fb0; /* Primary Button / Accent */
+  --accent-hover: #9ea5f3; /* Hover / Active */
+  --accent-soft: rgba(18, 159, 176, 0.25);
+  --accent-gradient: linear-gradient(135deg, #129fb0, #9ea5f3);
+
+  /* Text */
+  --text-main: #2e2f2c; /* Primary Text */
+  --text-muted: #797e70; /* Muted Text / Icons */
+}
+
+/* ================= DARK THEME ================= */
+body.dark {
+  --bg-main: #2e2f2c;
+  --bg-card: #3a3b38;
+  --navbar-bg: #1f201e;
+
+  --border-soft: rgba(255, 255, 255, 0.12);
+
+  --accent: #129fb0;
+  --accent-hover: #9ea5f3;
+  --accent-soft: rgba(18, 159, 176, 0.35);
+
+  --text-main: #f2f2f2;
+  --text-muted: #c7cccd;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: #f2f2f2;
+  font-size: 1.1rem;
+  cursor: pointer;
 }
 
 /* ================= GLOBAL ================= */
@@ -22,10 +54,7 @@
 }
 
 body {
-  background:
-    radial-gradient(circle at 20% 10%, rgba(255, 75, 75, 0.12), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(255, 145, 77, 0.12), transparent 45%),
-    var(--bg-main);
+  background: var(--bg-main);
   color: var(--text-main);
   min-height: 100vh;
 }
@@ -44,7 +73,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 6vw;
-  background: rgba(10, 12, 18, 0.75);
+  background: rgba(46, 47, 44, 0.95);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-soft);
 }
@@ -52,6 +81,7 @@ a {
 .logo {
   font-weight: 700;
   font-size: 1.3rem;
+  color: #f2f2f2;
 }
 
 .logo span {
@@ -61,12 +91,12 @@ a {
 .navbar nav a {
   margin-left: 1.4rem;
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: #c7cccd;
   transition: 0.2s;
 }
 
 .navbar nav a:hover {
-  color: var(--accent);
+  color: var(--accent-hover);
 }
 
 /* ================= HERO ================= */
@@ -120,6 +150,7 @@ a {
   gap: 1rem;
 }
 
+/* ================= BUTTONS ================= */
 .btn {
   padding: 0.75rem 1.6rem;
   border-radius: 999px;
@@ -128,16 +159,16 @@ a {
   transition: 0.25s ease;
 }
 
-/* Buttons */
 .btn.primary {
-  background: var(--accent-gradient);
-  color: white;
-  box-shadow: 0 10px 30px rgba(255, 75, 75, 0.35);
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(18, 159, 176, 0.35);
 }
 
 .btn.primary:hover {
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(255, 75, 75, 0.45);
+  box-shadow: 0 16px 40px rgba(158, 165, 243, 0.45);
 }
 
 .btn.secondary {
@@ -150,7 +181,7 @@ a {
   border-color: var(--accent);
 }
 
-/* Hero Image */
+/* ================= HERO IMAGE ================= */
 .hero-right {
   flex: 1;
   display: flex;
@@ -163,7 +194,7 @@ a {
   padding: 6px;
   border-radius: 50%;
   background: var(--accent-gradient);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
 }
 
 .profile-pic img {
@@ -238,6 +269,7 @@ a {
 .skill-card i {
   font-size: 2.4rem;
   margin-bottom: 0.3rem;
+  color: var(--text-muted);
 }
 
 .skill-card p {
@@ -253,11 +285,7 @@ a {
 }
 
 .project-card {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.02)
-  );
+  background: var(--bg-card);
   border: 1px solid var(--border-soft);
   border-radius: 16px;
   padding: 1.8rem 1.4rem;
@@ -269,8 +297,7 @@ a {
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45),
-              0 0 20px var(--accent-soft);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25), 0 0 20px var(--accent-soft);
 }
 
 .project-icon {
@@ -302,11 +329,11 @@ a {
   font-size: 0.7rem;
   padding: 4px 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.05);
   border: 1px solid var(--border-soft);
 }
 
-/* Project Buttons */
+/* ================= PROJECT LINKS ================= */
 .project-links {
   display: flex;
   gap: 12px;
@@ -320,22 +347,21 @@ a {
   border-radius: 8px;
   font-size: 0.8rem;
   border: 1px solid var(--border-soft);
-  color: var(--text-main);
   transition: 0.25s ease;
 }
 
 .project-link:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .project-link.live {
-  background: var(--accent-gradient);
+  background: var(--accent);
   border: none;
-  color: white;
+  color: #fff;
 }
 
 .project-link.live:hover {
-  box-shadow: 0 10px 25px rgba(255, 75, 75, 0.45);
+  background: var(--accent-hover);
 }
 
 /* ================= CONTACT ================= */
@@ -374,9 +400,9 @@ a {
   margin-top: 3rem;
   padding: 1.8rem 6vw;
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: #c7cccd;
   text-align: center;
-  border-top: 1px solid var(--border-soft);
+  background: #2e2f2c;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -388,4 +414,16 @@ a {
   .navbar nav {
     display: none;
   }
+}
+
+.fade-in,
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
 }

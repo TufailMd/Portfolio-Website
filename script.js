@@ -3,10 +3,11 @@ let roleIndex = 0;
 let charIndex = 0;
 const roleElement = document.getElementById("role-text");
 
-let typingDelay = 120; // ms
+let typingDelay = 120;
 let eraseDelay = 60;
 let holdDelay = 900;
 
+/* ================= TYPEWRITER ================= */
 function typeRole() {
   if (!roleElement) return;
 
@@ -15,7 +16,6 @@ function typeRole() {
     charIndex++;
     setTimeout(typeRole, typingDelay);
   } else {
-    // text completed, hold then erase
     setTimeout(eraseRole, holdDelay);
   }
 }
@@ -26,17 +26,42 @@ function eraseRole() {
     charIndex--;
     setTimeout(eraseRole, eraseDelay);
   } else {
-    // move to next role
     roleIndex = (roleIndex + 1) % roles.length;
     setTimeout(typeRole, typingDelay);
   }
 }
 
-// Start animation when page loads
+/* ================= THEME TOGGLE ================= */
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+const icon = themeToggle.querySelector("i");
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark");
+
+  if (body.classList.contains("dark")) {
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+    localStorage.setItem("theme", "dark");
+  } else {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+    localStorage.setItem("theme", "light");
+  }
+});
+
+/* ================= ON LOAD ================= */
 document.addEventListener("DOMContentLoaded", () => {
   typeRole();
 
-  // Set year in footer
+  // Footer year
   const yearSpan = document.getElementById("year");
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+  // Load saved theme
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark");
+    icon.classList.replace("fa-moon", "fa-sun");
+  }
 });
